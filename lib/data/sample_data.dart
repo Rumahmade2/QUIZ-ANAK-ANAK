@@ -1,0 +1,453 @@
+import '../models/question.dart';
+
+final Map<String, List<Question>> sampleQuizzes = {
+  'Matematika': [
+    // Mudah (5)
+    Question(
+      text: 'Berapakah hasil dari 5 + 3 ?',
+      options: ['6', '8', '9', '7'],
+      answerIndex: 1,
+      difficulty: Difficulty.mudah,
+      explanation: '5 + 3 = 8.',
+    ),
+    Question(
+      text:
+          'Jika Anda memiliki 10 apel dan memakan 4 apel, berapa yang tersisa?',
+      options: ['6', '5', '4', '7'],
+      answerIndex: 0,
+      difficulty: Difficulty.mudah,
+      explanation: '10 - 4 = 6.',
+    ),
+    Question(
+      text: 'Berapakah hasil dari 2 x 4?',
+      options: ['6', '8', '4', '2'],
+      answerIndex: 1,
+      difficulty: Difficulty.mudah,
+      explanation: '2 x 4 = 8.',
+    ),
+    Question(
+      text: 'Berapakah hasil dari 7 - 2?',
+      options: ['3', '4', '5', '6'],
+      answerIndex: 2,
+      difficulty: Difficulty.mudah,
+      explanation: '7 - 2 = 5.',
+    ),
+    Question(
+      text: 'Berapakah hasil dari 3 + 6?',
+      options: ['8', '9', '7', '10'],
+      answerIndex: 1,
+      difficulty: Difficulty.mudah,
+      explanation: '3 + 6 = 9.',
+    ),
+
+    // Susah (5)
+    Question(
+      text: 'Berapakah hasil dari 12 / 3?',
+      options: ['3', '4', '5', '6'],
+      answerIndex: 1,
+      difficulty: Difficulty.susah,
+      explanation: '12 ÷ 3 = 4.',
+    ),
+    Question(
+      text: 'Setengah dari 8 adalah?',
+      options: ['2', '3', '4', '5'],
+      answerIndex: 2,
+      difficulty: Difficulty.susah,
+      explanation: 'Setengah dari 8 = 4.',
+    ),
+    Question(
+      text: 'Berapakah hasil dari 9 x 7?',
+      options: ['56', '63', '72', '49'],
+      answerIndex: 1,
+      difficulty: Difficulty.susah,
+      explanation: '9 × 7 = 63.',
+    ),
+    Question(
+      text: 'Hitung: (2 + 3) x 4',
+      options: ['20', '24', '10', '16'],
+      answerIndex: 0,
+      difficulty: Difficulty.susah,
+      explanation: '(2 + 3) × 4 = 5 × 4 = 20.',
+    ),
+    Question(
+      text: 'Jika x + 5 = 12, maka x = ?',
+      options: ['6', '7', '8', '5'],
+      answerIndex: 1,
+      difficulty: Difficulty.susah,
+      explanation: 'x = 12 - 5 = 7.',
+    ),
+
+    // Sangat Susah (5)
+    Question(
+      text: 'Berapakah hasil dari 5^2 (5 pangkat 2)?',
+      options: ['10', '15', '20', '25'],
+      answerIndex: 3,
+      difficulty: Difficulty.sangatSusah,
+      explanation: '5^2 = 25 (5 × 5).',
+    ),
+    Question(
+      text: 'Berapakah sqrt(81)?',
+      options: ['7', '8', '9', '10'],
+      answerIndex: 2,
+      difficulty: Difficulty.sangatSusah,
+      explanation: 'sqrt(81) = 9.',
+    ),
+    Question(
+      text: 'Jika 3x + 2 = 11, maka x = ?',
+      options: ['2', '3', '4', '5'],
+      answerIndex: 1,
+      difficulty: Difficulty.sangatSusah,
+      explanation: '3x = 11 - 2 = 9 ⇒ x = 9 / 3 = 3.',
+    ),
+    Question(
+      text: 'Sederhanakan 4/8 menjadi bentuk paling sederhana.',
+      options: ['1/4', '1/2', '2/3', '3/4'],
+      answerIndex: 1,
+      difficulty: Difficulty.sangatSusah,
+      explanation: '4/8 = 1/2 setelah dibagi 4 numerator dan denominator.',
+    ),
+    Question(
+      text: 'Berapakah nilai kombinasi C(7,2)?',
+      options: ['21', '14', '28', '7'],
+      answerIndex: 0,
+      difficulty: Difficulty.sangatSusah,
+      explanation: 'C(7,2) = 7×6 / 2 = 21.',
+    ),
+  ],
+  'Bahasa Indonesia': [
+    // Mudah (5)
+    Question(
+      text: 'Pilihan kata baku untuk "ngapain" adalah...?',
+      options: ['Apa yang dilakukan', 'Melakukan apa', 'Untuk apa', 'Kenapa'],
+      answerIndex: 0,
+      difficulty: Difficulty.mudah,
+      explanation: 'Kata baku yang tepat adalah "Apa yang dilakukan".',
+    ),
+    Question(
+      text: 'Kata "saya" adalah kata ganti untuk...?',
+      options: ['Orang kedua', 'Orang pertama', 'Orang ketiga', 'Kepunyaan'],
+      answerIndex: 1,
+      difficulty: Difficulty.mudah,
+      explanation: '"Saya" adalah kata ganti orang pertama.',
+    ),
+    Question(
+      text: 'Sinonim kata "cantik" adalah?',
+      options: ['jelek', 'indah', 'besar', 'kecil'],
+      answerIndex: 1,
+      difficulty: Difficulty.mudah,
+      explanation: 'Sinonim "cantik" adalah "indah".',
+    ),
+    Question(
+      text: 'Lengkapi kalimat: "Dia sedang ___ buku."',
+      options: ['membaca', 'membeli', 'menulis', 'menggambar'],
+      answerIndex: 0,
+      difficulty: Difficulty.mudah,
+      explanation: 'Kata yang cocok adalah "membaca" sehingga kalimat menjadi "Dia sedang membaca buku."',
+    ),
+    Question(
+      text: 'Bentuk jamak dari "anak" adalah?',
+      options: ['anak', 'anak-anak', 'anaks', 'anak2'],
+      answerIndex: 1,
+      difficulty: Difficulty.mudah,
+      explanation: 'Bentuk jamak yang benar adalah "anak-anak".',
+    ),
+
+    // Susah (5)
+    Question(
+      text: 'Sinonim "meskipun" adalah?',
+      options: ['walaupun', 'karena', 'sehingga', 'karna'],
+      answerIndex: 0,
+      difficulty: Difficulty.susah,
+      explanation: 'Sinonim yang tepat adalah "walaupun".',
+    ),
+    Question(
+      text: 'Bentuk pasif dari "Ayah membeli mobil." adalah?',
+      options: ['Mobil dibeli oleh ayah', 'Ayah dibeli oleh mobil', 'Mobil membeli ayah', 'Mobil dibelikan ayah'],
+      answerIndex: 0,
+      difficulty: Difficulty.susah,
+      explanation: 'Bentuk pasif yang benar: "Mobil dibeli oleh ayah".',
+    ),
+    Question(
+      text: 'Jenis kata "dan" adalah?',
+      options: ['Kata hubung', 'Kata benda', 'Kata sifat', 'Kata kerja'],
+      answerIndex: 0,
+      difficulty: Difficulty.susah,
+      explanation: '"Dan" adalah kata hubung (konjungsi).',
+    ),
+    Question(
+      text: 'Antonim kata "ramai" adalah?',
+      options: ['sepi', 'bising', 'meriah', 'luas'],
+      answerIndex: 0,
+      difficulty: Difficulty.susah,
+      explanation: 'Antonim "ramai" adalah "sepi".',
+    ),
+    Question(
+      text: 'Kalimat tanya memiliki tanda baca?',
+      options: ['.', '?', '!', ','],
+      answerIndex: 1,
+      difficulty: Difficulty.susah,
+      explanation: 'Kalimat tanya menggunakan tanda tanya "?".',
+    ),
+
+    // Sangat Susah (5)
+    Question(
+      text: 'Pilih kalimat yang efektif:',
+      options: ['Karena hujan, saya basah.', 'Hujan turun sehingga saya basah.', 'Saya basah karena hujan.', 'Basahnya saya karena hujan.'],
+      answerIndex: 2,
+      difficulty: Difficulty.sangatSusah,
+      explanation: 'Kalimat efektif: "Saya basah karena hujan." (singkat dan jelas).',
+    ),
+    Question(
+      text: 'Contoh majas metafora adalah?',
+      options: ['Laut adalah cermin', 'Dia berlari cepat', 'Bulan bersinar', 'Rumah besar'],
+      answerIndex: 0,
+      difficulty: Difficulty.sangatSusah,
+      explanation: 'Majas metafora adalah perbandingan tanpa kata penghubung, contoh: "Laut adalah cermin".',
+    ),
+    Question(
+      text: 'Kalimat baku dari "gak" adalah?',
+      options: ['tidak', 'gak', 'tdk', 'tak'],
+      answerIndex: 0,
+      difficulty: Difficulty.sangatSusah,
+      explanation: 'Bentuk baku dari "gak" adalah "tidak".',
+    ),
+    Question(
+      text: 'Pilih kalimat yang menggunakan bahasa baku:',
+      options: ['Saya pergi ke pasar', 'Aku pergi ke pasar', 'Gua pergi ke pasar', 'Gw pergi ke pasar'],
+      answerIndex: 0,
+      difficulty: Difficulty.sangatSusah,
+      explanation: 'Kalimat baku menggunakan kata "Saya" bukan "Aku" atau slang.',
+    ),
+    Question(
+      text: 'Jenis majas yang menggunakan perbandingan kata "seperti" adalah?',
+      options: ['Simile (persamaan)', 'Metafora', 'Hiperbola', 'Personifikasi'],
+      answerIndex: 0,
+      difficulty: Difficulty.sangatSusah,
+      explanation: 'Majas yang menggunakan perbandingan kata "seperti" disebut simile/persamaan.',
+    ),
+  ],
+  'IPA': [
+    // Mudah (5)
+    Question(
+      text: 'Apa yang dibutuhkan tumbuhan untuk fotosintesis?',
+      options: ['Cahaya matahari', 'Bayangan', 'Arus listrik', 'Asam'],
+      answerIndex: 0,
+      difficulty: Difficulty.mudah,
+      explanation: 'Fotosintesis membutuhkan cahaya matahari untuk menghasilkan makanan.',
+    ),
+    Question(
+      text: 'Pada 100°C, air berubah menjadi?',
+      options: ['Padat', 'Cair', 'Gas', 'Plasma'],
+      answerIndex: 2,
+      difficulty: Difficulty.mudah,
+      explanation: 'Pada 100°C air mendidih dan berubah menjadi gas/uap.',
+    ),
+    Question(
+      text: 'Planet terdekat dengan Matahari adalah?',
+      options: ['Merkurius', 'Venus', 'Bumi', 'Mars'],
+      answerIndex: 0,
+      difficulty: Difficulty.mudah,
+      explanation: 'Planet terdekat ke Matahari adalah Merkurius.',
+    ),
+    Question(
+      text: 'Manusia bernapas untuk mengambil?',
+      options: ['Oksigen', 'Karbon dioksida', 'Nitrogen', 'Hidrogen'],
+      answerIndex: 0,
+      difficulty: Difficulty.mudah,
+      explanation: 'Manusia mengambil oksigen saat bernapas untuk respirasi.',
+    ),
+    Question(
+      text: 'H2O adalah rumus kimia untuk?',
+      options: ['Air', 'Oksigen', 'Hidrogen', 'Karbon dioksida'],
+      answerIndex: 0,
+      difficulty: Difficulty.mudah,
+      explanation: 'H2O adalah rumus kimia untuk air (dua atom H dan satu O).',
+    ),
+
+    // Susah (5)
+    Question(
+      text: 'Satuan arus listrik adalah?',
+      options: ['Volt', 'Ampere', 'Ohm', 'Watt'],
+      answerIndex: 1,
+      difficulty: Difficulty.susah,
+      explanation: 'Satuan arus listrik adalah Ampere (A).',
+    ),
+    Question(
+      text: 'Hukum Newton kedua menyatakan F = ?',
+      options: ['m + a', 'm * a', 'm / a', 'm - a'],
+      answerIndex: 1,
+      difficulty: Difficulty.susah,
+      explanation: 'Hukum Newton II: F = m × a (gaya = massa × percepatan).',
+    ),
+    Question(
+      text: 'Rotasi Bumi menyebabkan fenomena?',
+      options: ['Siang dan malam', 'Musim', 'Gerhana', 'Pasang surut'],
+      answerIndex: 0,
+      difficulty: Difficulty.susah,
+      explanation: 'Rotasi Bumi pada porosnya menyebabkan pergantian siang dan malam.',
+    ),
+    Question(
+      text: 'Fotosintesis menghasilkan gas apa?',
+      options: ['Karbon dioksida', 'Oksigen', 'Nitrogen', 'Hidrogen'],
+      answerIndex: 1,
+      difficulty: Difficulty.susah,
+      explanation: 'Fotosintesis menghasilkan oksigen sebagai produk sampingan.',
+    ),
+    Question(
+      text: 'Manakah yang bukan wujud materi?',
+      options: ['Padat', 'Cair', 'Gas', 'Energi'],
+      answerIndex: 3,
+      difficulty: Difficulty.susah,
+      explanation: 'Energi bukan merupakan wujud materi, sedangkan padat/cair/gas adalah wujud materi.',
+    ),
+
+    // Sangat Susah (5)
+    Question(
+      text: 'Di manakah DNA terutama ditemukan dalam sel eukariot?',
+      options: ['Nukleus', 'Sitosol', 'Ribosom', 'Kloroplas'],
+      answerIndex: 0,
+      difficulty: Difficulty.sangatSusah,
+      explanation: 'DNA utama pada sel eukariot terdapat di nukleus (inti sel).',
+    ),
+    Question(
+      text: 'Nomor atom untuk Oksigen adalah?',
+      options: ['6', '8', '7', '9'],
+      answerIndex: 1,
+      difficulty: Difficulty.sangatSusah,
+      explanation: 'Nomor atom Oksigen adalah 8 (jumlah proton).',
+    ),
+    Question(
+      text: 'Cahaya merambat tercepat di?',
+      options: ['Vakum', 'Air', 'Kaca', 'Udara'],
+      answerIndex: 0,
+      difficulty: Difficulty.sangatSusah,
+      explanation: 'Cahaya merambat paling cepat di vakum (tanpa medium).',
+    ),
+    Question(
+      text: 'pH netral air adalah sekitar?',
+      options: ['0', '7', '14', '1'],
+      answerIndex: 1,
+      difficulty: Difficulty.sangatSusah,
+      explanation: 'pH netral air adalah sekitar 7.',
+    ),
+    Question(
+      text: 'Salah satu satuan energi umum adalah?',
+      options: ['Joule', 'Meter', 'Kilo', 'Gram'],
+      answerIndex: 0,
+      difficulty: Difficulty.sangatSusah,
+      explanation: 'Joule adalah satuan energi dalam SI.',
+    ),
+  ],
+  'Bahasa Inggris': [
+    // Mudah (5)
+    Question(
+      text: 'What is the English word for "rumah"?',
+      options: ['House', 'Car', 'Tree', 'River'],
+      answerIndex: 0,
+      difficulty: Difficulty.mudah,
+      explanation: '"Rumah" dalam Bahasa Inggris adalah "House". Kata ini berarti tempat tinggal — contohnya: "I live in a big house."',
+    ),
+    Question(
+      text: 'Choose the correct translation for "Selamat pagi".',
+      options: ['Good night', 'Good morning', 'Goodbye', 'Thank you'],
+      answerIndex: 1,
+      difficulty: Difficulty.mudah,
+      explanation: '"Selamat pagi" = "Good morning". Ungkapan ini digunakan saat menyapa di pagi hari, mis. "Good morning, teacher!"',
+    ),
+    Question(
+      text: 'Select the plural form of "child".',
+      options: ['childs', 'children', 'childes', 'child'],
+      answerIndex: 1,
+      difficulty: Difficulty.mudah,
+      explanation: 'Bentuk jamak dari "child" adalah "children" — tidak menggunakan akhiran -s sederhana. Contoh: "One child, two children."',
+    ),
+    Question(
+      text: 'Yesterday I ___ to the store.',
+      options: ['go', 'went', 'gone', 'goes'],
+      answerIndex: 1,
+      difficulty: Difficulty.mudah,
+      explanation: 'Bentuk lampau (past) dari "go" adalah "went" — contoh: "I went to the store yesterday.".',
+    ),
+    Question(
+      text: 'Choose the correct article: "___ apple"',
+      options: ['A', 'An', 'The', 'No article'],
+      answerIndex: 1,
+      difficulty: Difficulty.mudah,
+      explanation: 'Gunakan "An" sebelum kata yang dimulai dengan bunyi vokal, seperti "apple". Contoh: "An apple a day keeps the doctor away."',
+    ),
+
+    // Susah (5)
+    Question(
+      text: 'Choose the correct verb form: "She ___ to school every day."',
+      options: ['go', 'goes', 'going', 'gone'],
+      answerIndex: 1,
+      difficulty: Difficulty.susah,
+      explanation: 'Untuk orang ketiga tunggal (she/he/it) bentuk yang benar adalah "goes".',
+    ),
+    Question(
+      text: 'Which word is a synonym of "happy"?',
+      options: ['sad', 'joyful', 'angry', 'tired'],
+      answerIndex: 1,
+      difficulty: Difficulty.susah,
+      explanation: '"Joyful" memiliki arti yang mirip dengan "happy" (senang).',
+    ),
+    Question(
+      text: 'Fill in: "If I ___ you, I would apologize."',
+      options: ['am', 'were', 'was', 'be'],
+      answerIndex: 1,
+      difficulty: Difficulty.susah,
+      explanation: 'Dalam kondisi tidak nyata, gunakan "were" (subjunctive).',
+    ),
+    Question(
+      text: 'Choose the correct preposition: "He is interested ___ music."',
+      options: ['on', 'in', 'for', 'at'],
+      answerIndex: 1,
+      difficulty: Difficulty.susah,
+      explanation: 'Kata yang benar adalah "interested in" (tertarik pada sesuatu).',
+    ),
+    Question(
+      text: 'Select the correct passive form: "They make this cake every year."',
+      options: ['This cake is made every year', 'This cake makes every year', 'This cake is making every year', 'This cake was made every year'],
+      answerIndex: 0,
+      difficulty: Difficulty.susah,
+      explanation: 'Bentuk pasif yang benar: "This cake is made every year."',
+    ),
+
+    // Sangat Susah (5)
+    Question(
+      text: 'Choose the correct sentence with subjunctive: "It is essential that he ___ on time."',
+      options: ['is', 'be', 'was', 'are'],
+      answerIndex: 1,
+      difficulty: Difficulty.sangatSusah,
+      explanation: 'Setelah ekspresi seperti "It is essential that", gunakan bentuk dasar (subjunctive) yaitu "be".',
+    ),
+    Question(
+      text: 'Which phrasal verb means "postpone"?',
+      options: ['put off', 'put up', 'take on', 'turn in'],
+      answerIndex: 0,
+      difficulty: Difficulty.sangatSusah,
+      explanation: '"Put off" berarti menunda (postpone).',
+    ),
+    Question(
+      text: 'Identify the correct modal: "You ___ have told me earlier."',
+      options: ['should', 'must', 'could', 'might'],
+      answerIndex: 0,
+      difficulty: Difficulty.sangatSusah,
+      explanation: '"Should have" menunjukkan bahwa seharusnya tindakan dilakukan di masa lalu.',
+    ),
+    Question(
+      text: 'Which idiom means "to relax"?',
+      options: ['chill out', 'break down', 'bring up', 'take off'],
+      answerIndex: 0,
+      difficulty: Difficulty.sangatSusah,
+      explanation: '"Chill out" berarti santai atau rileks.',
+    ),
+    Question(
+      text: 'Select the correct conditional: "Had I known, I ___ have come."',
+      options: ['would', 'will', 'shall', 'could'],
+      answerIndex: 0,
+      difficulty: Difficulty.sangatSusah,
+      explanation: 'Bentuk conditional ketiga menggunakan "would have" untuk menyatakan hasil yang tidak terjadi.',
+    ),
+  ],
+};
