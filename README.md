@@ -1,4 +1,3 @@
-# flutter_application_3
 
 Kuis anak-anak sederhana (materi contoh)
 
